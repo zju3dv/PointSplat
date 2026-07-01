@@ -12,7 +12,7 @@
 <sup>†</sup>Corresponding author
 
 [![Project Page](https://img.shields.io/badge/Project-Page-5f8fbd)](https://zju3dv.github.io/pointsplat)
-![arXiv](https://img.shields.io/badge/arXiv-Coming%20Soon-c68b5b)
+[![arXiv](https://img.shields.io/badge/arXiv-2606.32036-c68b5b)](https://arxiv.org/abs/2606.32036)
 
 <img src="assets/overview.gif" width="100%">
 
@@ -21,6 +21,6 @@
 ## TODO
 
 
-- [ ] Release project page and paper.
+- [x] Release project page and paper.
 - [ ] Add inference code.
 - [ ] Release pretrained checkpoints.
