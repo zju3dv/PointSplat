@@ -1,0 +1,40 @@
+# @package _global_
+
+defaults:
+  - override /dataset: renbody
+  - override /model/encoder: pointsplat
+  - override /model/decoder: splatting_gsplat
+
+mode: test
+
+dataset:
+  view_sampler:
+    name: fps
+    num_context_views: 8
+    num_target_views: 48
+  background_color: [1.0,1.0,1.0]
+  num_val_scenes: -1
+  start_scene_val: 0
+  start_frame_val: 30
+  frame_per_val_scene: 1
+  frame_gap_val: 1
+  norm_sampled_views: true
+
+model:
+  encoder:
+    gaussians_decoder:
+      clip_scaling: [-1.0,0.0,3.0,0.0]
+  decoder:
+    scale_invariant: false
+
+test:
+  move_to_cpu: false
+  save_gt_image: true
+  save_input_images: true
+  save_gaussian: true
+  save_image: true
+  mask_output: true
+  compute_scores: true
+
+trainer:
+  precision: bf16

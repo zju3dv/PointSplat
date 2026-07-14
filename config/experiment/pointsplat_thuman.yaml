@@ -1,0 +1,37 @@
+# @package _global_
+
+defaults:
+  - override /dataset: thuman
+  - override /model/encoder: pointsplat
+  - override /model/decoder: splatting_gsplat
+
+mode: test
+
+dataset:
+  view_sampler:
+    name: fps
+    num_context_views: 8
+    num_target_views: 16
+  image_shape: 512
+  background_color: [1.0,1.0,1.0]
+  num_val_scenes: -1
+
+model:
+  encoder:
+    gaussians_decoder:
+      clip_scaling: [-1.0,0.0,3.0,0.0]
+      prune_ratio: 0.3
+  decoder:
+    scale_invariant: false
+
+
+test:
+  move_to_cpu: false
+  save_gt_image: true
+  save_input_images: false
+  save_image: true
+  mask_output: true
+  compute_scores: false
+
+trainer:
+  precision: bf16

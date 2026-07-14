@@ -1,0 +1,54 @@
+defaults:
+  - dataset: renbody
+  - model/encoder: pointsplat
+  - model/decoder: splatting_gsplat
+
+
+mode: test
+
+output_dir: outputs/tmp
+
+hydra:
+  run:
+    dir: ${output_dir}/hydra_run/${now:%Y-%m-%d-%H-%M-%S}
+
+data_loader:
+  test:
+    num_workers: 4
+    persistent_workers: false
+    batch_size: 1
+    seed: 2345
+
+checkpointing:
+  load: null
+  pretrained_model: null
+  pretrained_depth: null
+  pretrained_encoder: null
+  pretrained_decoder: null
+  no_strict_load: false
+
+trainer:
+  seed: 111123
+  num_nodes: 1
+  precision: 32-true
+  use_plugins: false
+
+test:
+  output_path: outputs/test
+  compute_scores: true
+  eval_time_skip_steps: 0
+  save_image: true
+  save_video: false
+  save_gt_image: true
+  save_input_images: true
+  save_depth: false
+  save_depth_npy: false
+  save_depth_concat_img: false
+  save_gaussian: false
+  render_chunk_size: null
+  stablize_camera: false
+  stab_camera_kernel: 50
+  mask_output: true
+  move_to_cpu: true
+  downsample_context_ratio: 1.0
+

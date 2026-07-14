@@ -1,0 +1,36 @@
+name: pointsplat
+
+image_tokenizer:
+  patch_size: 4
+  in_channels: 9 # 3 RGB + 6 plucker + (1 mask)
+  use_ln: false
+
+vhull_res: 108
+bounds: [-1.0,-1.0,-1.0,1.0,1.0,1.0]
+min_cell_size: 0.002
+cube_sample: true
+threshold: 0.8
+
+point_patch_size: 16
+
+transformer:
+  d: 1024
+  d_head: 16
+  n_layer: 4
+  input_ln: false
+  output_ln: true
+
+gaussians_decoder:
+  num_target: 240000
+  hidden_dim: 1024
+  use_rgb: true
+  sh_degree: 3 # useless when use_rgb is true
+  clip_scaling: [100,1e-10,3.,3000]
+  scale_bias: -6.0
+  init_density: 0.02
+  xyz_offset_max_step: 0.02
+  fix_rotation: false
+  activation: "silu"
+  n_hidden_layers: 2
+  n_neurons: 512
+  prune_ratio: 0.2

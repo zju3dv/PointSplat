@@ -1,0 +1,37 @@
+# defaults:
+#   - view_sampler: bounded
+
+view_sampler:
+  name: fps
+  num_context_views: 8
+  num_target_views: 1
+
+name: renbody
+roots: [datasets/DNA_Rendering_processed]
+
+image_shape: 512
+cameras_are_circular: false
+overfit_to_scene: null
+
+near: 0.5
+far: 2.0
+scene_scale_factor: 1.35
+background_color: [0.0, 0.0, 0.0]
+
+random_view: true
+num_views: 48
+norm_extrinsic: true
+
+train_times_per_scene: 1
+shuffle_val: false
+
+num_training_scenes: -1
+num_val_scenes: -1
+start_scene_training: 0
+start_scene_val: 0
+frame_per_training_scene: 150
+frame_per_val_scene: 1
+start_frame_training: 0
+start_frame_val: 0
+frame_gap_training: 1
+frame_gap_val: 1
